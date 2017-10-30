@@ -1,0 +1,17 @@
+{
+  "name": "button-thing",
+  "version": "0.1.0",
+  "description": "Create, view and press buttons",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "button"
+  ],
+  "author": "Zufeng Wang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
