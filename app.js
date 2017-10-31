@@ -13,22 +13,23 @@ app.get("/", function(req, res){
 
 // index route
 app.get("/buttons", function(req, res){
-  res.send("get request to /buttons");
+  res.render("index");
 });
 
 // new route
 app.get("/buttons/new", function(req, res){
-  res.send("get request to /buttons/new");
+  res.render("new");
 });
 
 // show route
 app.get("/buttons/:id", function(req, res){
-  res.send("/buttons/:id");
+  res.send("/buttons/" + req.params.id);
 });
 
 // create route
 app.post("/buttons", function(req, res){
-  res.send("post request to /buttons");
+  console.log("Attempt to create a new button. Post request to /buttons");
+  res.redirect("/buttons");
 });
 
 
