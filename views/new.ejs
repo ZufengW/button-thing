@@ -1,8 +1,21 @@
 <% include partials/header %>
 <h1>Create a new button</h1>
-<form class="" action="/buttons" method="post">
-  <label>Colour <input type="color" name="colour" value=""></label>
+<form id="form" class="" action="/buttons" method="post">
+  <label>Colour <input id="colour-input" type="color" name="colour"></label>
   <input type="submit">
 </form>
+<div class="">
+  <h2>Preview</h2>
+  <button id="button-preview" type="button" name="button"></button>
+</div>
+
+<script type="text/javascript">
+  var previewButton= document.getElementById("button-preview");
+  var colourInput = document.getElementById("colour-input");
+  colourInput.addEventListener("input", function(){
+    // TODO attempt to parse this as colour
+    previewButton.style.backgroundColor = colourInput.value;
+  });
+</script>
 <a href="/buttons">Go back</a>
 <% include partials/footer %>
