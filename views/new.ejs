@@ -1,20 +1,28 @@
 <% include partials/header %>
 <h1>Create a new button</h1>
 <form id="form" class="" action="/buttons" method="post">
-  <label>Colour <input id="colour-input" type="color" name="colour"></label>
+  <label for="colour-input">Colour</label>
+  <input id="colour-input" type="color" name="colour">
+  <label for="char-input">Character</label>
+  <input id="char-input" type="text" name="char" value="" maxlength="1">
   <input type="submit">
 </form>
 <div class="">
   <h2>Preview</h2>
-  <button id="button-preview" type="button" name="button"></button>
+  <button id="preview-button" type="button" name="button"></button>
 </div>
 
 <script type="text/javascript">
-  var previewButton= document.getElementById("button-preview");
+  // makes the inputs update the preview
+  var previewButton= document.getElementById("preview-button");
+  var charInput = document.getElementById("char-input");
   var colourInput = document.getElementById("colour-input");
   colourInput.addEventListener("input", function(){
     // TODO attempt to parse this as colour
     previewButton.style.backgroundColor = colourInput.value;
+  });
+  charInput.addEventListener("input", function(){
+    previewButton.textContent = charInput.value; 
   });
 </script>
 <a href="/buttons">Go back</a>
