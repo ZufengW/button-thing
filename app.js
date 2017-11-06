@@ -30,8 +30,14 @@ app.get("/buttons/:id", function(req, res){
 
 // create route
 app.post("/buttons", function(req, res){
-  console.log("Post request to /buttons. char="+req.body.char + " colour="+req.body.colour);
-  // may want to check format
+  var char = req.body.char;
+  console.log("Post request to /buttons. char="+char + " colour="+req.body.colour);
+  // may want to check format of attributes
+  // check format of char
+  if (char.length > 1 || RegExp("[^A-Za-z0-9-_]").test(char)){
+    // incorrect length or character for char
+    console.warn("Problem with format of char");
+  }
   res.redirect("/buttons");
 });
 
