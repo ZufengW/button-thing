@@ -1,8 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 // tells express to serve contents of public directory
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({"extended":true}));
 // tells express to expect ejs files. No longer need to put .ejs in filenames
 app.set("view engine", "ejs");
 
@@ -28,7 +30,8 @@ app.get("/buttons/:id", function(req, res){
 
 // create route
 app.post("/buttons", function(req, res){
-  console.log("Attempt to create a new button. Post request to /buttons");
+  console.log("Post request to /buttons. char="+req.body.char + " colour="+req.body.colour);
+  // may want to check format
   res.redirect("/buttons");
 });
 
